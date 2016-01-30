@@ -1,5 +1,5 @@
 # PerVoxelRaycaster
-Demonstration of raycasting algorithm in which each ray samples each voxel on its way through the volume.
+Demonstration of raycasting algorithm in which the rays sample each voxel which are on their way through the volume.
 
 ## Dependencies
 * GLM: http://glm.g-truc.net/0.9.7/index.html (MIT license chosen)
