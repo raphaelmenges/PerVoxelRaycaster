@@ -66,6 +66,13 @@ static void buttonsCallback(GLFWwindow* pWindow, GLint button, GLint action, GLi
 	}
 }
 
+/** GLFW callback for mouse scrolling */
+static void scrollCallback(GLFWwindow* window, double xoffset, double yoffset)
+{
+	camera.setRadius(camera.getRadius() - 0.1f * (float)yoffset);
+}
+
+
 /** main */
 int main()
 {
@@ -89,6 +96,7 @@ int main()
 	ogl_LoadFunctions();
 	glfwSetCursorPosCallback(pWindow, cursorCallback);
 	glfwSetMouseButtonCallback(pWindow, buttonsCallback);
+	glfwSetScrollCallback(pWindow, scrollCallback);
 
 	// OpenGL initialization
 	glEnable(GL_DEPTH_TEST);
@@ -111,7 +119,7 @@ int main()
 	shader.use();
 
 	// Initialize camera
-	camera.init(glm::vec3(0.5f), glm::radians(-135.0f), glm::radians(80.0f), 1, 0.1f, 3);
+	camera.init(glm::vec3(0.5f), glm::radians(-135.0f), glm::radians(80.0f), 2, 0.5f, 5);
 
 	// Other initializations
 	prevCursorX = cursorX;
@@ -205,13 +213,13 @@ int main()
 		// View matrix
 		if(buttonPressed)
 		{
-			camera.setAlpha(camera.getAlpha() - 0.005f * cursorDeltaX);
-			camera.setBeta(camera.getBeta() + 0.005f * cursorDeltaY);
+			camera.setAlpha(camera.getAlpha() + 0.005f * cursorDeltaX);
+			camera.setBeta(camera.getBeta() - 0.005f * cursorDeltaY);
 		}
 		uniformView = camera.getViewMatrix();
 
 		// Projection matrix
-		uniformProjection = glm::perspective(30.0f, ((GLfloat)width/(GLfloat)height), 0.1f, 100.f);
+		uniformProjection = glm::perspective(glm::radians(30.f), ((GLfloat)width/(GLfloat)height), 0.1f, 100.f);
 
 		// Set updated uniforms in shader
 		shader.setUniformValue(uniformModelHandle, uniformModel);
