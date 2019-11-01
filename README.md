@@ -10,7 +10,6 @@ Demonstration of raycasting algorithm in which the rays sample each voxel which 
 * Bonsai volume data (S. Roettger, VIS, University of Stuttgart) from http://www.volvis.org/
 
 ## TODO
-* Test under linux
 * Other transferfunction
 * Exchange of shaders at runtime
 
