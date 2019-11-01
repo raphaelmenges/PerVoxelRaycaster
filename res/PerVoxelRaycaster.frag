@@ -39,9 +39,53 @@ void main()
 	vec3 t_nextGridPosOffset;
 
 	// Calc offset of grid positon
-	dir.x > 0 ? nextGridPosOffset.x = 1 : dir.x < 0 ? nextGridPosOffset.x = -1 : nextGridPosOffset.x = 10;
-	dir.y > 0 ? nextGridPosOffset.y = 1 : dir.y < 0 ? nextGridPosOffset.y = -1 : nextGridPosOffset.y = 10;
-	dir.z > 0 ? nextGridPosOffset.z = 1 : dir.z < 0 ? nextGridPosOffset.z = -1 : nextGridPosOffset.z = 10;
+	if(dir.x > 0)
+	{
+		nextGridPosOffset.x = 1;
+	}
+	else
+	{
+		if(dir.x < 0)
+		{
+			nextGridPosOffset.x = -1;
+		}	
+		else
+		{
+			nextGridPosOffset.x = 10;
+		}
+	}
+	
+	if(dir.y > 0)
+	{
+		nextGridPosOffset.y = 1;
+	}
+	else
+	{
+		if(dir.y < 0)
+		{
+			nextGridPosOffset.y = -1;
+		}	
+		else
+		{
+			nextGridPosOffset.y = 10;
+		}
+	}
+	
+	if(dir.z > 0)
+	{
+		nextGridPosOffset.z = 1;
+	}
+	else
+	{
+		if(dir.z < 0)
+		{
+			nextGridPosOffset.z = -1;
+		}	
+		else
+		{
+			nextGridPosOffset.z = 10;
+		}
+	}
 	
 	// Calc offset of next pos
 	t_nextGridPosOffset = nextGridPosOffset / scaledRes;

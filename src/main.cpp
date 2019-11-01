@@ -105,7 +105,7 @@ int main()
 	// Setup shader
 
 	// ### CHOOSE FROM ONE OF THESE THREE SHADERS ###
-	//shader.loadShaders(Raycaster.vert", "SimpleRaycaster.frag");
+	//shader.loadShaders("Raycaster.vert", "SimpleRaycaster.frag");
 	//shader.loadShaders("Raycaster.vert", "SimplePerVoxelRaycaster.frag");
 	shader.loadShaders("Raycaster.vert", "PerVoxelRaycaster.frag");
 
